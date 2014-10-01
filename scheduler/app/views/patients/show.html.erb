@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @patient.name %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @patient.street_address %>
+</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Specialist Name</th>
+    <th>Appointment Date</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @patient.appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.patient.name %></td>
+        <td><%= appointment.appointment_date %></td>
+
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

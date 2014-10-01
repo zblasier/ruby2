@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Specialist Name:</strong>
+  <%= @specialist.name %>
+</p>
+
+
+<p>
+  <strong>Specialty:</strong>
+  <%= @specialist.specialty %>
+</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Patient Name</th>
+    <th>Appointment Date</th>
+    <th>Days Till Appointment</th>
+   </tr>
+  </thead>
+
+  <tbody>
+  <% @specialist.appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.patient.name %></td>
+        <td><%= appointment.appointment_date %></td>
+        <td><%= appointment.appointment_date - Date.today%></td>
+
+         </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_specialist_path(@specialist) %> |
+<%= link_to 'Back', specialists_path %>
